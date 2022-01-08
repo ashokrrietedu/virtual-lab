@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Lab</title>
+</head>
+<body>
+    <div class="form-wrap">
+          <input type="number" class="h-val" placeholder="H Value"/>
+          <input type="number" class="t-val" placeholder="&Theta; Value"/>
+          <button class="calc">Check</button>
+    </div>
+    <div class="result">
+        
+    </div>
+    <script>
+
+         var h_val    = document.querySelector('.h-val');
+         var t_val    = document.querySelector('.t-val');
+         var result   = document.querySelector('.result');
+         var check    = document.querySelector('.calc');
+         const g      = 9.8;
+
+         check.addEventListener('click', calculate);
+
+         function calculate(){
+            
+              if(!h_val.value){
+                  alert('Please Enter H Value');
+                  return;
+              }
+
+              if(!t_val.value){
+                  alert('Please Enter T Value');
+                  return;
+              }
+
+              let cal = 0;
+              cal     = (8/5) * Math.sqrt(2 * g) * Math.tan(t_val.value / 2) * Math.pow(h_val.value, (5 / 2)); 
+
+              result.innerHTML = cal.toFixed(2);
+
+         }
+
+    </script>   
+</body>
+</html>
